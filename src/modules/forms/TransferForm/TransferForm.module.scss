@@ -1,0 +1,30 @@
+@import "styles/global.scss";
+
+.form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 12px;
+  border: 2px solid $clr-brand;
+  border-radius: 8px;
+
+  @include mq(desktop) {
+    @include flex();
+    flex-wrap: wrap;
+    column-gap: 40px;
+  }
+}
+
+.formDisabled {
+  @extend .form;
+  pointer-events: none;
+  border-color: $clr-brand-disabled;
+
+  & > label > span {
+    color: $clr-brand-form-disabled;
+  }
+
+  & input {
+    box-shadow: none;
+    border-color: $clr-brand-form-disabled;
+  }
+}

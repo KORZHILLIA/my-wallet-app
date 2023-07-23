@@ -1,0 +1,29 @@
+@import "styles/global.scss";
+
+.btn {
+  padding: 12px;
+  background-color: $clr-brand;
+  @include flex();
+  column-gap: 20px;
+  @include font(20px, 500, 1);
+  color: $clr-font-btn;
+  border-radius: 4px;
+  @include transitioned(background-color);
+
+  &:disabled {
+    background-color: $clr-brand-disabled;
+  }
+
+  &:hover {
+    background-color: $clr-brand-hover;
+  }
+
+  @include mq(tablet) {
+    @include font(32px, 600, 1);
+  }
+}
+
+.btnConnected {
+  @extend .btn;
+  pointer-events: none;
+}

@@ -1,0 +1,30 @@
+@import "styles/global.scss";
+
+.header {
+  width: 100%;
+  background-color: $clr-header;
+  box-shadow: $shadow-header;
+}
+
+.container {
+  @include flex(space-between);
+  padding: 16px;
+
+  @include mq(tablet) {
+    max-width: 800px;
+  }
+
+  @include mq(desktop) {
+    max-width: 1200px;
+  }
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+
+  @include mq(tablet) {
+    width: 72px;
+    height: 72px;
+  }
+}

@@ -1,0 +1,71 @@
+@import "styles/global.scss";
+
+.label {
+  position: relative;
+  padding-bottom: 28px;
+  @include flex(center, flex-start, column);
+  &:not-last-child {
+    margin-bottom: 20px;
+  }
+
+  @include mq(tablet) {
+    padding-bottom: 50px;
+  }
+
+  @include mq(desktop) {
+    & > input {
+      width: 700px;
+    }
+    &:last-of-type > input {
+      width: 400px;
+    }
+  }
+}
+
+.labelText {
+  margin-bottom: 4px;
+  @include font(24px, 600);
+  color: $clr-brand;
+
+  @include mq(tablet) {
+    @include font(40px, 600);
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  color: $clr-brand;
+  @include font(20px);
+  background-color: transparent;
+  border: 1px solid $clr-font;
+  box-shadow: $shadow-input;
+  outline: none;
+
+  &:focus {
+    border-color: $clr-brand-hover;
+    box-shadow: $shadow-input-focus;
+  }
+
+  @include mq(tablet) {
+    @include font(32px);
+  }
+}
+
+.inputError {
+  @extend .input;
+  border: 1px solid $clr-error;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include font(20px, 500, 1);
+  color: $clr-error;
+
+  @include mq(tablet) {
+    @include font(30px);
+  }
+}

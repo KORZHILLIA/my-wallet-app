@@ -1,0 +1,44 @@
+@import "styles/global.scss";
+
+.btn {
+  width: 80%;
+  margin: 12px auto 0;
+  padding: 12px;
+  @include flex();
+  column-gap: 12px;
+  color: $clr-font-btn;
+  @include font(20px);
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, $clr-brand-secondary, $clr-brand);
+
+  @include mq(tablet) {
+    @include font(32px);
+  }
+
+  @include mq(desktop) {
+    width: 250px;
+  }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  fill: $clr-body-bg;
+  animation: rotation 1s linear;
+  animation-iteration-count: infinite;
+
+  @include mq(tablet) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

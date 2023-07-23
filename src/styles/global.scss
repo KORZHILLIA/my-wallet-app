@@ -1,0 +1,71 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  @include font();
+  font-family: $font-main;
+
+  color: $clr-font;
+  background-color: $clr-body-bg;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include mq(mobile) {
+    max-width: 480px;
+  }
+
+  @include mq(tablet) {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  @include mq(desktop) {
+    max-width: 1280px;
+  }
+}
