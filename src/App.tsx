@@ -30,6 +30,7 @@ function App() {
         if (!result) {
           if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             window.open('https://metamask.app.link/dapp/my-wallet-app-jade.vercel.app');
+            setIsMetamaskInstalled(true);
             return;
           }
           toast.warning('Please install Metamask');
