@@ -25,14 +25,14 @@ function App() {
   const [isSending, setIsSending] = useState<boolean>(false);
 
   useEffect(() => {
-      detectMetamask().then(result => {
-        setIsMetamaskInstalled(result);
-        if (!result) {
-          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             window.open('https://metamask.app.link/dapp/my-wallet-app-jade.vercel.app');
             setIsMetamaskInstalled(true);
             return;
           }
+      detectMetamask().then(result => {
+        setIsMetamaskInstalled(result);
+        if (!result) {
           toast.warning('Please install Metamask');
         }
       }).catch(error => toast.error(error.message));
