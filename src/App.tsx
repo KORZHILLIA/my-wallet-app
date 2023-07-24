@@ -28,6 +28,10 @@ function App() {
       detectMetamask().then(result => {
         setIsMetamaskInstalled(result);
         if (!result) {
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.open('https://metamask.app.link/dapp/my-wallet-app-jade.vercel.app');
+            return;
+          }
           toast.warning('Please install Metamask');
         }
       }).catch(error => toast.error(error.message));
