@@ -21,7 +21,7 @@ onSubmit(updatedFormData);
 
     return <form className={!isDisabled ? styles.form : styles.formDisabled} onSubmit={handleSubmit(onFormSubmit)}>
         <Input label='Wallet address' type='text' register={register('accountID', {
-            required: "Please fill this field",
+            required: "Required",
             validate: {
                 testValue: (value: string) => {
                     const regExp = /^0x[a-fA-F0-9]{40}$/;
@@ -30,7 +30,7 @@ onSubmit(updatedFormData);
             }
         })} error={errors.accountID?.message} />
         <Input label='Amount to send, ETH' type='text' register={register('ETHValue', {
-            required: "Please fill this field",
+            required: "Required",
             validate: {
                 testValue: (value: string) => {
                     const regExp = /^\d+(?:\.\d+)?$/;

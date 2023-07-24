@@ -1,0 +1,29 @@
+@import "styles/global.scss";
+
+.link {
+  display: block;
+  max-width: 160px;
+  margin: 40px 0 0 auto;
+  padding: 8px;
+  @include flex();
+  border-radius: 4px;
+  color: $clr-font-btn;
+  @include font(20px);
+  text-decoration: none;
+  background-color: $clr-brand;
+  @include transitioned(background-color);
+
+  &:hover {
+    background-color: $clr-brand-hover;
+  }
+
+  @include mq(tablet) {
+    bottom: 10%;
+    @include font(32px);
+  }
+
+  @include mq(desktop) {
+    bottom: 20px;
+    right: 5%;
+  }
+}

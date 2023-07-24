@@ -44,4 +44,15 @@ export interface SpinnerButtonProps {
     type: 'submit' | 'button';
     label: string;
     showSpinner: boolean;
-}
+};
+
+export interface TransactionObject {
+    from: string;
+    to: string;
+    value: string;
+};
+
+export interface OuterLinkProps {
+    linkAddress: string;
+    label: string;
+};

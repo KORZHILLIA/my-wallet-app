@@ -56,6 +56,7 @@
 .inputError {
   @extend .input;
   border: 1px solid $clr-error;
+  box-shadow: $shadow-input-error;
 }
 
 .error {
