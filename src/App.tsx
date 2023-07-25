@@ -84,7 +84,7 @@ function App() {
           <div className='container'>
         <TransferForm isDisabled={!Boolean(wallet)} onSubmit={sendTransaction} isSending={isSending} />
         <div className={isMobile ? 'linksWrapper' : 'linksWrapperSingleLink'}>
-          {isMobile && <OuterLink linkAddress={import.meta.env.VITE_METAMASK_URL} label='Go to Metamask' />}
+          {isMobile && !wallet && <OuterLink linkAddress={import.meta.env.VITE_METAMASK_URL} label='Go to Metamask' />}
           <OuterLink linkAddress={import.meta.env.VITE_REPO_URL} label='Code page' />
         </div>
         </div>
