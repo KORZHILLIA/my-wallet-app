@@ -8,15 +8,12 @@ export default defineConfig({
   resolve: {
     alias: {
       assets: '/src/assets',
+      constants: '/src/constants',
       helpers: '/src/helpers',
       modules: '/src/modules',
       service: '/src/service',
       shared: '/src/shared',
       styles: '/src/styles',
-      // process: "process/browser",
-      // stream: "stream-browserify",
-      // zlib: "browserify-zlib",
-      // util: 'util',
       web3: '/node_modules/web3/dist/web3.min.js',
     },
   },

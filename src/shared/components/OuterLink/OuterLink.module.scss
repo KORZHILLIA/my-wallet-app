@@ -2,8 +2,7 @@
 
 .link {
   display: block;
-  max-width: 160px;
-  margin: 40px 0 0 auto;
+  max-width: 300px;
   padding: 8px;
   @include flex();
   border-radius: 4px;
@@ -18,12 +17,10 @@
   }
 
   @include mq(tablet) {
-    bottom: 10%;
     @include font(32px);
   }
 
   @include mq(desktop) {
-    bottom: 20px;
     right: 5%;
   }
 }

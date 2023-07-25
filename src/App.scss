@@ -10,3 +10,13 @@
     @include flex();
   }
 }
+
+.linksWrapper {
+  padding: 40px 0 20px 0;
+  @include flex(space-between);
+}
+
+.linksWrapperSingleLink {
+  @extend .linksWrapper;
+  @include flex(flex-end);
+}

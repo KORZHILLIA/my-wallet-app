@@ -8,13 +8,15 @@ import OuterLink from 'shared/components/OuterLink/OuterLink';
 
 import detectMetamask from 'service/metamask/detectMetamask';
 import getAccount from 'service/metamask/getAccount';
+import sendTransactionToMetamask from 'service/metamask/sendTransactionToMetamask';
 import formatBalance from 'helpers/formatBalance';
 import formatAccount from 'helpers/formatAccount';
 import prepareTransactionObject from 'helpers/prepareTransactionObject';
-import sendTransactionToMetamask from 'service/metamask/sendTransactionToMetamask';
+import defineIsMobileDevice from 'helpers/defineIsMobileDevice';
 
 import type { Wallet } from 'constants/types';
 import type { TransferFormInputs } from 'constants/types';
+import mobileAlertMessage from 'constants/mobile-alert-message';
 
 import './App.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,10 +28,10 @@ function App() {
   const [isSending, setIsSending] = useState<boolean>(false);
 
   useEffect(() => {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    const isMobileDevice = defineIsMobileDevice();
+    if (isMobileDevice) {
       setIsMobile(true);
-      alert('Please ensure you have Metamask App installed. If so, press the button "Go to Metamask", restore/add your wallet. After that on Metamask main page click compass icon and enter address https://my-wallet-app-jade.vercel.app. Now you can use the app in fully manner.');
-            window.open('https://metamask.app.link/dapp/my-wallet-app-jade.vercel.app');
+      alert(mobileAlertMessage);
             setIsMetamaskInstalled(true);
             return;
           }
@@ -81,8 +83,10 @@ function App() {
         <main className='main'>
           <div className='container'>
         <TransferForm isDisabled={!Boolean(wallet)} onSubmit={sendTransaction} isSending={isSending} />
-        {isMobile && <a href={import.meta.env.VITE_METAMASK_URL}>Go to Metemask</a>}
-    <OuterLink linkAddress={import.meta.env.VITE_REPO_URL} label='Code page' />
+        <div className={isMobile ? 'linksWrapper' : 'linksWrapperSingleLink'}>
+          {isMobile && <OuterLink linkAddress={import.meta.env.VITE_METAMASK_URL} label='Go to Metamask' />}
+          <OuterLink linkAddress={import.meta.env.VITE_REPO_URL} label='Code page' />
+        </div>
         </div>
     </main>
     <ToastContainer />
