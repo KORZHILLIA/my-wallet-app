@@ -21,11 +21,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [isMetamaskInstalled, setIsMetamaskInstalled] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [wallet, setWallet] = useState<Wallet | null>(null);
   const [isSending, setIsSending] = useState<boolean>(false);
 
   useEffect(() => {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      setIsMobile(true);
+      alert('Please ensure you have Metamask App installed. If so, press the button "Go to Metamask", restore/add your wallet. After that on Metamask main page click compass icon and enter address https://my-wallet-app-jade.vercel.app. Now you can use the app in fully manner.');
             window.open('https://metamask.app.link/dapp/my-wallet-app-jade.vercel.app');
             setIsMetamaskInstalled(true);
             return;
@@ -78,6 +81,7 @@ function App() {
         <main className='main'>
           <div className='container'>
         <TransferForm isDisabled={!Boolean(wallet)} onSubmit={sendTransaction} isSending={isSending} />
+        {isMobile && <a href={import.meta.env.VITE_METAMASK_URL}>Go to Metemask</a>}
     <OuterLink linkAddress={import.meta.env.VITE_REPO_URL} label='Code page' />
         </div>
     </main>
